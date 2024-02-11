@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sessions Ouvertes</title>
+</head>
+<body>
+    <h1>Sessions Ouvertes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Heure d'ouverture</th>
+                <th>Heure de fermeture</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for session in sessions %}
+                <tr>
+                    <td>{{ session.id }}</td>
+                    <td>{{ session.nom }}</td>
+                    <td>{{ session.heure_ouverture }}</td>
+                    <td>{{ session.heure_fermeture }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  
+    <iframe src="http://localhost:5000/formulaire" width="600" height="400"></iframe>
+</body>
+</html>
+

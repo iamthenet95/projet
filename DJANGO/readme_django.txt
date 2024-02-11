@@ -1,0 +1,1 @@
+Django gère la création, la modification et la suppression des sessions de cours. Django fournit une interface d'administration  qui permet aux administrateurs du système de visualiser et de gérer facilement les données, comme les sessions de cours à partir d'un navigateur web.
