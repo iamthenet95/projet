@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Exemple de formulaire modifiable</title>
+</head>
+<body>
+
+<h2>Formulaire etudiant de suivi</h2>
+
+<form id="monFormulaire" action="/formulaire/{{ session.id }}/soumettre" method="POST">
+
+    <div>
+        <label for="avancement">Votre % d’avancement sur le TP :</label>
+        <input type="range" id="avancement" name="avancement" min="0" max="100" value="50" oninput="progressAvancement.value=this.value">
+        <progress id="progressAvancement" value="50" max="100"></progress>
+    </div>
+
+    <div>
+        <label for="difficulte">En termes de difficulté :</label>
+        <select id="difficulte" name="difficulte">
+            <option value="Facile">Facile</option>
+            <option value="OK">OK</option>
+            <option value="Un peu compliqué">Un peu compliqué</option>
+            <option value="Très compliqué">Très compliqué</option>
+            <option value="Au secours">Au secours</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="progression">Ma progression :</label>
+        <select id="progression" name="progression">
+            <option value="J’ai compris">J’ai compris</option>
+            <option value="Je dois encore pratiquer">Je dois encore pratiquer</option>
+            <option value="C’est flou">C’est flou</option>
+        </select>
+    </div>
+
+    <button type="submit">Valider les résultats</button> 
+</form>
+
+</body>
+</html>
+

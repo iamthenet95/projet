@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sessions Ouvertes</title>
+</head>
+<body>
+    <h1>Sessions Ouvertes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Heure d'ouverture</th>
+                <th>Heure de fermeture</th>
+                <th>URL de la session</th>
+            </tr>
+        </thead>
+        <tbody id="sessionsTable">
+            <!-- Les données des sessions ouvertes seront insérées ici via JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        // JavaScript pour récupérer et afficher les sessions ouvertes
+        fetch('http://127.0.0.1:8000/sessions_ouvertes/')
+            .then(response => response.json())
+            .then(data => {
+                const sessionsTable = document.getElementById('sessionsTable');
+                data.sessions_ouvertes.forEach(session => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${session.id}</td>
+                        <td>${session.heure_ouverture}</td>
+                        <td>${session.heure_fermeture}</td>
+                        <td><a href="http://127.0.0.1:5000/formulaire/${session.id}">Lien vers le formulaire</a></td>
+
+                    `;
+                    sessionsTable.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Une erreur s\'est produite lors de la récupération des sessions ouvertes:', error));
+    </script>
+</body>
+</html>
+

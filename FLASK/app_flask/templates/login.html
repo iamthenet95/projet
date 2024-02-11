@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire de Connexion</title>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/metro.css">
+</head>
+<body>
+    <h1>Connexion</h1>
+    <form method="POST" action="/login">
+        {{ form.hidden_tag() }}
+        <div>
+            <label for="username">Nom d'utilisateur:</label>
+            {{ form.username(size=20) }}
+        </div>
+        <div>
+            <label for="password">Mot de passe:</label>
+            {{ form.password(size=20) }}
+        </div>
+        <div>
+            {{ form.submit }}
+        </div>
+    </form>
+    <p>Vous n'avez pas de compte? <a href="{{ url_for('register') }}">Pour s'enregistrer</a></p>
+</body>
+</html>
